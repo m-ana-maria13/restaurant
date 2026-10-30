@@ -3,8 +3,8 @@ package model;
 public class Server extends Staff {
     private String designation;
 
-    public Server(String name, String id, String designation) {
-        super(name, id);
+    public Server(String id, String name, String designation) {
+        super(id, name);
         this.designation=designation;
     }
 

@@ -3,8 +3,8 @@ package model;
 public class Chef extends Staff {
     private String specialization;
 
-    public Chef(String name, String id, String specialization) {
-        super(name, id);
+    public Chef(String id, String name, String specialization) {
+        super(id, name);
         this.specialization = specialization;
     }
 

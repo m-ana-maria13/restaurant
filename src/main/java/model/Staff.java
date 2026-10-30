@@ -1,13 +1,13 @@
 package model;
 
 public abstract class Staff {
-    private String id;
     private String name;
+    private String id;
     private String status; // neue Eigenschaft
 
-    public Staff(String name, String id) {
-        this.name = name;
+    public Staff( String id, String name) {
         this.id = id;
+        this.name = name;
         this.status="free";
     }
 
