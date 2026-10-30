@@ -1,27 +1,16 @@
 package repository;
 
+import model.Staff;
+import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class StaffInMemoryRepository implements IRepository {
-
-
-    @Override
-    public Object save() {
-        return null;
-    }
+@Repository
+public class StaffInMemoryRepository extends InMemoryRepository<Staff>{
 
     @Override
-    public List findAll() {
-        return List.of();
-    }
-
-    @Override
-    public Object findById(String id) {
-        return null;
-    }
-
-    @Override
-    public Boolean delete() {
-        return null;
+    protected String getId(Staff entity) {
+        return entity.getId();
     }
 }
