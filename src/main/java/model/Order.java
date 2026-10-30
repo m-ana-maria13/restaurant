@@ -4,16 +4,16 @@ import java.util.List;
 
     public class Order {
         private String id;
-        private String costumerId;
+        private String customerId;
         private String tableId;
         private String status; //open/closed
         private List<OrderLine> orderLines;
         private List<OrderAssignment> assignments;
         private Boolean takeAway; // daca e takeaway, atunci nu se mai ocupa masa, ! nu se face delivery, vine clientul
 
-        public Order(String id, String costumerId, String tableId, List<OrderLine> orderLines, List<OrderAssignment> assignments) {
+        public Order(String id, String customerId, String tableId, List<OrderLine> orderLines, List<OrderAssignment> assignments) {
             this.id = id;
-            this.costumerId = costumerId;
+            this.customerId = customerId;
             this.tableId = tableId;
             this.status = "open";
             this.orderLines = orderLines;
@@ -30,11 +30,11 @@ import java.util.List;
         }
 
         public String getCostumerId() {
-            return costumerId;
+            return customerId;
         }
 
-        public void setCostumerId(String costumerId) {
-            this.costumerId = costumerId;
+        public void setCostumerId(String customerId) {
+            this.customerId = this.customerId;
         }
 
         public String getTableId() {
