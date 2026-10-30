@@ -8,11 +8,11 @@ public class Table {
     private List<Order> orders;
     private String occupiedStatus;
 
-    public Table(String id, int number, List<Order> orders, String occupiedStatus) {
+    public Table(String id, int number, List<Order> orders) {
         this.id = id;
         this.number = number;
         this.orders = orders;
-        this.occupiedStatus = occupiedStatus;
+        this.occupiedStatus = "free";
     }
 
 

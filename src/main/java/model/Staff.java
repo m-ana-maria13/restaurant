@@ -3,10 +3,12 @@ package model;
 public abstract class Staff {
     private String id;
     private String name;
+    private String status; // neue Eigenschaft
 
     public Staff(String name, String id) {
         this.name = name;
         this.id = id;
+        this.status="free";
     }
 
     public String getId() {
@@ -23,5 +25,13 @@ public abstract class Staff {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

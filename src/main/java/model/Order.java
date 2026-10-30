@@ -9,14 +9,16 @@ import java.util.List;
         private String status; //open/closed
         private List<OrderLine> orderLines;
         private List<OrderAssignment> assignments;
+        private Boolean takeAway; // daca e takeaway, atunci nu se mai ocupa masa, ! nu se face delivery, vine clientul
 
-        public Order(String id, String costumerId, String tableId, String status, List<OrderLine> orderLines, List<OrderAssignment> assignments) {
+        public Order(String id, String costumerId, String tableId, List<OrderLine> orderLines, List<OrderAssignment> assignments) {
             this.id = id;
             this.costumerId = costumerId;
             this.tableId = tableId;
-            this.status = status;
+            this.status = "open";
             this.orderLines = orderLines;
             this.assignments = assignments;
+            this.takeAway= false;
         }
 
         public String getId() {
@@ -65,6 +67,14 @@ import java.util.List;
 
         public void setAssignments(List<OrderAssignment> assignments) {
             this.assignments = assignments;
+        }
+
+        public Boolean getTakeAway() {
+            return takeAway;
+        }
+
+        public void setTakeAway(Boolean takeAway) {
+            this.takeAway = takeAway;
         }
     }
 
