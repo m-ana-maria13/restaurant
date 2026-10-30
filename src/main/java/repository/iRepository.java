@@ -1,10 +1,11 @@
 package repository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface IRepository<T> {
-    public void save();
-    public ArrayList<T> findAll();
+    public T save();
+    public List<T> findAll();
     public T findById(String id);
-    public void delete();
+    public Boolean delete();
 }
