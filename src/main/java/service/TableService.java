@@ -47,6 +47,15 @@ public class TableService {
         return tables.findByNumber(number);
     }
 
+    public Table getTableById(String id){
+        return tables.findById(id);
+    }
+
+    public List<Table> getAllTables(){
+        return tables.findAll();
+    }
+
+
 
     public List<Table> getAvailableTables() {
         List<Table> available = new ArrayList<>();
