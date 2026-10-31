@@ -26,6 +26,7 @@ public abstract class InMemoryRepository<T> implements IRepository<T> {
 
     @Override
     public List<T> findAll() {
+
         return new ArrayList<>(entities);
     }
 
