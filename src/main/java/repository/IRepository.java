@@ -8,5 +8,4 @@ public interface IRepository<T> {
     public List<T> findAll();
     public T findById(String id);
     public Boolean delete(T entity);
-
 }
