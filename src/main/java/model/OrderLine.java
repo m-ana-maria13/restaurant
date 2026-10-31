@@ -1,12 +1,15 @@
 package model;
 
 public class OrderLine {
+
+    private static int counter=1;
     private String id;
     private String menuItemId;
     private double quantity;
 
-    public OrderLine(String id, String menuItemId, double quantity) {
-        this.id = id;
+    public OrderLine(String menuItemId, double quantity) {
+        this.id = String.valueOf(counter);
+        counter++;
         this.menuItemId = menuItemId;
         this.quantity = quantity;
     }

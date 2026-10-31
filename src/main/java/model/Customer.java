@@ -1,17 +1,19 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
+
+    private static int counter=1;
     private String id;
     private String name;
     private List<Order> orders;
     private double discount;
 
 
-    public Customer(String id, String name, List<Order> orders) {
-        this.id = id;
+    public Customer(String name, List<Order> orders) {
+        this.id = String.valueOf(counter);
+        counter++;
         this.name = name;
         this.orders = orders;
         this.discount=0.0;
@@ -19,8 +21,9 @@ public class Customer {
     }
 
 
-    public Customer(String id, String name, List<Order> orders, double discount) {
-        this.id = id;
+    public Customer(String name, List<Order> orders, double discount) {
+        this.id = String.valueOf(counter);
+        counter++;
         this.name = name;
         this.orders = orders;
         this.discount=discount; //procente, pana in 70 la suta

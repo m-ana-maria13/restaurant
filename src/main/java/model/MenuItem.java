@@ -1,12 +1,15 @@
 package model;
 
 public class MenuItem {
+
+    private static int counter=1;
     private String id;
     private String name;
     private double price;
 
-    public MenuItem(String id, String name, double price) {
-        this.id = id;
+    public MenuItem( String name, double price) {
+        this.id = String.valueOf(counter);
+        counter++;
         this.name = name;
         this.price = price;
     }

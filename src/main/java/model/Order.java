@@ -3,6 +3,8 @@ package model;
 import java.util.List;
 
     public class Order {
+
+        private static int counter=1;
         private String id;
         private String customerId;
         private String tableId;
@@ -11,8 +13,9 @@ import java.util.List;
         private List<OrderAssignment> assignments;
         private Boolean takeAway; // daca e takeaway, atunci nu se mai ocupa masa, ! nu se face delivery, vine clientul
 
-        public Order(String id, String customerId, String tableId, List<OrderLine> orderLines, List<OrderAssignment> assignments) {
-            this.id = id;
+        public Order(String customerId, String tableId, List<OrderLine> orderLines, List<OrderAssignment> assignments) {
+            this.id = String.valueOf(counter);
+            counter++;
             this.customerId = customerId;
             this.tableId = tableId;
             this.status = "open";
@@ -29,11 +32,11 @@ import java.util.List;
             this.id = id;
         }
 
-        public String getCostumerId() {
+        public String getCustomerId() {
             return customerId;
         }
 
-        public void setCostumerId(String customerId) {
+        public void setCustomerId(String customerId) {
             this.customerId = this.customerId;
         }
 

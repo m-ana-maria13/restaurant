@@ -1,12 +1,14 @@
 package model;
 
 public class Bill {
+    private static int counter=1;
     private String id;
     private String orderId;
     private double totalAmount;
 
-    public Bill(String id, String orderId, double totalAmount) {
-        this.id = id;
+    public Bill( String orderId, double totalAmount) {
+        this.id = String.valueOf(counter);
+        counter++;
         this.orderId = orderId;
         this.totalAmount = totalAmount;
     }

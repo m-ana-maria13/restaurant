@@ -1,12 +1,15 @@
 package model;
 
 public class OrderAssignment {
+
+    private static int counter=1;
     private String id;
     private String orderId;
     private String staffId;
 
-    public OrderAssignment(String id, String orderId, String staffId) {
-        this.id = id;
+    public OrderAssignment( String orderId, String staffId) {
+        this.id = String.valueOf(counter);
+        counter++;
         this.orderId = orderId;
         this.staffId = staffId;
     }

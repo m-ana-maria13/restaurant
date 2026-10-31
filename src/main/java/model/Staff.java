@@ -1,12 +1,14 @@
 package model;
 
 public abstract class Staff {
+    private static int counter=1;
     private String name;
     private String id;
     private String status; // neue Eigenschaft
 
-    public Staff( String id, String name) {
-        this.id = id;
+    public Staff( String name) {
+        this.id = String.valueOf(counter);
+        counter++;
         this.name = name;
         this.status="free";
     }

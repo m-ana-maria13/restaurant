@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Table {
+
+    private static int counter=1;
     private String id;
     private int number;
     private List<Order> orders;
     private String occupiedStatus;
 
-    public Table(String id, int number, List<Order> orders) {
-        this.id = id;
+    public Table(int number, List<Order> orders) {
+        this.id = String.valueOf(counter);
+        counter++;
         this.number = number;
         this.orders = orders;
         this.occupiedStatus = "Free";
