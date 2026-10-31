@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 public class CustomerInMemoryRepository extends InMemoryRepository<Customer>{
     @Override
     public String getId(Customer entity) {
-
-        return entity.getId();
+         return entity.getId();
     }
 }

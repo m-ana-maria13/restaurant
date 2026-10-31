@@ -8,7 +8,7 @@ import java.util.List;
 public abstract class InMemoryRepository<T> implements IRepository<T> {
     protected final List<T> entities = new ArrayList<T>();
 
-    protected abstract String getId(T entity);
+    public abstract String getId(T entity);
 
     @Override
     public T save(T entity) {
@@ -16,7 +16,7 @@ public abstract class InMemoryRepository<T> implements IRepository<T> {
         if (entity != null) {
             String id = getId(entity);
             if (id != null) {
-                delete(entity);
+                delete(entity); // daca entitiy e deja, sterg datele vechi si il salvez din nou (update)
                 entities.add(entity);
                 return entity;
             }

@@ -23,7 +23,7 @@ public class Customer {
         this.id = id;
         this.name = name;
         this.orders = orders;
-        this.discount=discount;
+        this.discount=discount; //procente, pana in 70 la suta
 
     }
 
