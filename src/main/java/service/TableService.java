@@ -10,15 +10,15 @@ import java.util.List;
 
 @Service
 public class TableService {
-    private final TableInMemoryRepository  tables;
+    private final TableInMemoryRepository  tableRepository;
 
     @Autowired
     TableService(TableInMemoryRepository tables){
-        this.tables = tables;
+        this.tableRepository = tables;
     }
 
     public Table occupyTable(String tableId) {
-        Table table = tables.findById(tableId);
+        Table table = tableRepository.findById(tableId);
 
         if (table == null) {
             throw new IllegalArgumentException("Table does not exist!");
@@ -29,37 +29,37 @@ public class TableService {
         }
 
         table.setOccupiedStatus("Occupied");
-        return tables.save(table);
+        return tableRepository.save(table);
     }
 
     public Table releaseTable(String tableId) {
-        Table table = tables.findById(tableId);
+        Table table = tableRepository.findById(tableId);
 
         if (table == null) {
             throw new IllegalArgumentException("Table does not exist!");
         }
 
         table.setOccupiedStatus("Free");
-        return tables.save(table);
+        return tableRepository.save(table);
     }
 
     public Table getTableByNumber(int number) {
-        return tables.findByNumber(number);
+        return tableRepository.findByNumber(number);
     }
 
     public Table getTableById(String id){
-        return tables.findById(id);
+        return tableRepository.findById(id);
     }
 
     public List<Table> getAllTables(){
-        return tables.findAll();
+        return tableRepository.findAll();
     }
 
 
 
     public List<Table> getAvailableTables() {
         List<Table> available = new ArrayList<>();
-        for (Table table : tables.findAll()) {
+        for (Table table : tableRepository.findAll()) {
             if ((table.getOccupiedStatus()).equalsIgnoreCase("Free")) {
                 available.add(table);
             }
