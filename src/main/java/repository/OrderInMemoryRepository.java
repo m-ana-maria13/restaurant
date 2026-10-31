@@ -9,7 +9,8 @@ import java.util.List;
 public class OrderInMemoryRepository extends InMemoryRepository<Order>{
 
     @Override
-    protected String getId(Order entity) {
+    public String getId(Order entity) {
+
         return entity.getId();
     }
 }

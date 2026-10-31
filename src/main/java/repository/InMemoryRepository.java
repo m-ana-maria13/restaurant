@@ -26,6 +26,7 @@ public abstract class InMemoryRepository<T> implements IRepository<T> {
 
     @Override
     public List<T> findAll() {
+
         return new ArrayList<>(entities);
     }
 
@@ -53,6 +54,6 @@ public abstract class InMemoryRepository<T> implements IRepository<T> {
         }
 
         return entities.removeIf(item-> id.equals(getId(item)));
-        //fot item in entities, if id=id , remove
+        //for item in entities, if id=id , remove
     }
 }

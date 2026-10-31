@@ -13,7 +13,7 @@ public class Table {
         this.id = id;
         this.number = number;
         this.orders = orders;
-        this.occupiedStatus = "free";
+        this.occupiedStatus = "Free";
     }
 
 

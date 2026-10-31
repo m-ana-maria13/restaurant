@@ -10,7 +10,7 @@ import java.util.List;
 public class StaffInMemoryRepository extends InMemoryRepository<Staff>{
 
     @Override
-    protected String getId(Staff entity) {
+    public String getId(Staff entity) {
         return entity.getId();
     }
 }
