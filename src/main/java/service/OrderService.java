@@ -1,0 +1,151 @@
+package service;
+import model.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import repository.*;
+
+
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Service
+public class OrderService {
+    private final OrderInMemoryRepository orderRepository ;
+    private final CustomerInMemoryRepository customerRepository ;
+    private final TableInMemoryRepository tableRepository ;
+    private final TableService tableService;
+    private final MenuItemInMemoryRepository  menuItemRepository ;
+    private final StaffInMemoryRepository staffRepository ;
+    private final StaffService staffService;
+
+
+    @Autowired
+    public OrderService(OrderInMemoryRepository orderRepository, CustomerInMemoryRepository customerRepository,
+                        TableInMemoryRepository tableRepository,TableService tableService,MenuItemInMemoryRepository  menuItemRepository,
+                        StaffInMemoryRepository staffRepository, StaffService staffService) {
+        this.orderRepository = orderRepository;
+        this.customerRepository=customerRepository;
+        this.tableRepository= tableRepository;
+        this.tableService=tableService;
+        this.menuItemRepository=menuItemRepository;
+        this.staffRepository=staffRepository;
+        this.staffService=staffService;
+    }
+
+
+    public Order createOrder(String customerId, String tableId, boolean takeAway){
+        if(customerId==null || customerRepository.findById(customerId)==null){
+            throw new IllegalArgumentException("Invalid customer!");
+        }
+
+        if(!takeAway){
+            if(tableId==null || tableRepository.findById(tableId)==null){
+                throw new IllegalArgumentException("Invalid customer!");
+            }
+            tableService.occupyTable(tableId);
+        }
+        else{
+            tableId=null;
+        }
+
+        Order order= new Order(customerId,tableId,takeAway);
+        return orderRepository.save(order);
+
+    }
+
+    public Order addOrderLine(String orderId, String menuItemId, double quantity){
+
+        if(quantity<0){
+            throw new IllegalArgumentException("Invalid quantity!");
+        }
+
+        Order order= orderRepository.findById(orderId);
+        if(order==null){
+            throw new IllegalArgumentException("Invalid Order!");
+        }
+        if(!"open".equalsIgnoreCase(order.getStatus())){
+                throw new IllegalStateException("Order not opened, cannot add Item!");
+        }
+
+
+        MenuItem menuItem= menuItemRepository.findById(menuItemId);
+        if(menuItem==null){
+            throw new IllegalArgumentException("Invalid Menu Item!");
+        }
+
+
+        if (order.getOrderLines()==null){
+            order. setOrderLines(new ArrayList<>());
+        }
+
+        boolean itemExists=false; //produsul exista deja, schimb doar cantitatea
+        for(OrderLine line : order.getOrderLines()){
+            if (menuItemId.equals(line.getMenuItemId())){
+                line.setQuantity(quantity);
+                itemExists=true;
+                break;
+            }
+        }
+
+        if(!itemExists){//prima data cand adaug produsul
+            OrderLine orderLine= new OrderLine(menuItemId,quantity);
+            order.getOrderLines().add(orderLine); //imi adaug in arrayul de orderlines produsul nou
+        }
+
+        return orderRepository.save(order);
+
+    }
+
+    public Order assignStaff(String orderId, String staffId){
+        Order order= orderRepository.findById(orderId);
+        if(order==null){
+            throw new IllegalArgumentException("Invalid Order!");
+        }
+
+        Staff staff = staffRepository.findById(staffId);
+        if(staff==null){
+            throw new IllegalArgumentException("Invalid staff memeber!");
+        }
+
+        if(order.getAssignments()==null){
+            order.setAssignments(new ArrayList<>());
+        }
+
+        OrderAssignment orderAssignment= new OrderAssignment(orderId,staffId);
+        order.getAssignments().add(orderAssignment);
+
+        staffService.changeStatus(staffId, "Occupied");
+
+        return orderRepository.save(order);
+    }
+
+    public Order closeOrder(String orderId){
+        Order order= orderRepository.findById(orderId);
+        if(order==null){
+            throw new IllegalArgumentException("Invalid Order!");
+        }
+
+        order.setStatus("Closed");
+
+        if(!order.getTakeAway() &&  order.getTableId() != null){
+           tableService.releaseTable(order.getTableId());
+        }
+
+        return orderRepository.save(order);
+    }
+
+
+
+    public Order getOrderById(String orderId){
+        return orderRepository.findById(orderId);
+    }
+
+
+    public List<Order> getAllOrders(){
+        return orderRepository.findAll();
+    }
+
+
+}
