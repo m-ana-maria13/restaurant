@@ -2,6 +2,7 @@ package service;
 
 
 import model.Customer;
+import model.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.CustomerInMemoryRepository;
