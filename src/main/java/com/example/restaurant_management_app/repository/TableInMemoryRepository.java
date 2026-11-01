@@ -1,9 +1,7 @@
-package repository;
+package com.example.restaurant_management_app.repository;
 
-import model.Table;
+import com.example.restaurant_management_app.model.Table;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public class TableInMemoryRepository extends InMemoryRepository<Table> {

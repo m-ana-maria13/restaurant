@@ -1,13 +1,13 @@
-package service;
+package com.example.restaurant_management_app.service;
 
 
-import model.*;
+import com.example.restaurant_management_app.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.BillInMemoryRepository;
-import repository.CustomerInMemoryRepository;
-import repository.MenuItemInMemoryRepository;
-import repository.OrderInMemoryRepository;
+import com.example.restaurant_management_app.repository.BillInMemoryRepository;
+import com.example.restaurant_management_app.repository.CustomerInMemoryRepository;
+import com.example.restaurant_management_app.repository.MenuItemInMemoryRepository;
+import com.example.restaurant_management_app.repository.OrderInMemoryRepository;
 
 import java.util.List;
 

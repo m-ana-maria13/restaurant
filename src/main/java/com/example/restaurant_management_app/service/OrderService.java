@@ -1,11 +1,10 @@
-package service;
-import model.*;
+package com.example.restaurant_management_app.service;
+import com.example.restaurant_management_app.model.*;
+import com.example.restaurant_management_app.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.*;
 
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class OrderService {
     private final CustomerInMemoryRepository customerRepository ;
     private final TableInMemoryRepository tableRepository ;
     private final TableService tableService;
-    private final MenuItemInMemoryRepository  menuItemRepository ;
+    private final MenuItemInMemoryRepository menuItemRepository ;
     private final StaffInMemoryRepository staffRepository ;
     private final StaffService staffService;
 
@@ -42,7 +41,7 @@ public class OrderService {
 
         if(!takeAway){
             if(tableId==null || tableRepository.findById(tableId)==null){
-                throw new IllegalArgumentException("Invalid customer!");
+                throw new IllegalArgumentException("Invalid table!");
             }
             tableService.occupyTable(tableId);
         }

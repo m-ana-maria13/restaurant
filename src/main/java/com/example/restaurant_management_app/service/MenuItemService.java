@@ -1,10 +1,9 @@
-package service;
+package com.example.restaurant_management_app.service;
 
-import io.micrometer.core.instrument.config.validate.ValidationException;
-import model.MenuItem;
+import com.example.restaurant_management_app.model.MenuItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.MenuItemInMemoryRepository;
+import com.example.restaurant_management_app.repository.MenuItemInMemoryRepository;
 
 import java.util.List;
 

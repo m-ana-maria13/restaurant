@@ -1,6 +1,5 @@
-package model;
+package com.example.restaurant_management_app.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Table {
@@ -18,6 +17,8 @@ public class Table {
         this.orders = orders;
         this.occupiedStatus = "Free";
     }
+
+    public Table(){}
 
 
     public String getId() {

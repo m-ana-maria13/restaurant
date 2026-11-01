@@ -1,4 +1,4 @@
-package model;
+package com.example.restaurant_management_app.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +26,8 @@ import java.util.List;
 
         }
 
+        public Order(){}
+
         public String getId() {
             return id;
         }
@@ -39,7 +41,7 @@ import java.util.List;
         }
 
         public void setCustomerId(String customerId) {
-            this.customerId = this.customerId;
+            this.customerId = customerId;
         }
 
         public String getTableId() {

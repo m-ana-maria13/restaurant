@@ -1,4 +1,4 @@
-package model;
+package com.example.restaurant_management_app.model;
 
 public class OrderLine {
 
@@ -13,6 +13,8 @@ public class OrderLine {
         this.menuItemId = menuItemId;
         this.quantity = quantity;
     }
+
+    public OrderLine(){}
 
     public String getId() {
         return id;

@@ -1,10 +1,7 @@
-package repository;
+package com.example.restaurant_management_app.repository;
 
-import model.Staff;
+import com.example.restaurant_management_app.model.Staff;
 import org.springframework.stereotype.Repository;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Repository
 public class StaffInMemoryRepository extends InMemoryRepository<Staff>{

@@ -1,4 +1,4 @@
-package model;
+package com.example.restaurant_management_app.model;
 
 public abstract class Staff {
     private static int counter=1;
@@ -12,6 +12,8 @@ public abstract class Staff {
         this.name = name;
         this.status="Free";
     }
+
+    public Staff(){}
 
     public String getId() {
         return id;

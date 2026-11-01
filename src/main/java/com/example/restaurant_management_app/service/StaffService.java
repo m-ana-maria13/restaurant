@@ -1,12 +1,13 @@
-package service;
+package com.example.restaurant_management_app.service;
 
-import model.Chef;
-import model.Server;
-import model.Staff;
+import com.example.restaurant_management_app.model.Chef;
+import com.example.restaurant_management_app.model.Server;
+import com.example.restaurant_management_app.model.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.StaffInMemoryRepository;
+import com.example.restaurant_management_app.repository.StaffInMemoryRepository;
 
+import javax.management.modelmbean.InvalidTargetObjectTypeException;
 import java.util.List;
 
 @Service
@@ -18,10 +19,16 @@ public class StaffService {
         this.staffRepository = staffRepo;
     }
 
-    public Staff addNewStaff(Staff s) {
-        Staff staff = existingStaff(s.getId());
+    public Chef addNewChef(String name, String specialization){
+        Chef chef= new Chef(name,specialization);
+         return (Chef) staffRepository.save(chef);
 
-        return staffRepository.save(staff);
+    }
+
+    public Server addNewServer(String name, String designation ){
+        Server server= new Server(name, designation);
+        return (Server) staffRepository.save(server);
+
     }
 
 

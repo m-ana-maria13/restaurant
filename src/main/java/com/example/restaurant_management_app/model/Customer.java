@@ -1,4 +1,4 @@
-package model;
+package com.example.restaurant_management_app.model;
 
 import java.util.List;
 
@@ -19,6 +19,8 @@ public class Customer {
         this.discount=0.0;
 
     }
+
+    public Customer(){}
 
 
     public Customer(String name, List<Order> orders, double discount) {

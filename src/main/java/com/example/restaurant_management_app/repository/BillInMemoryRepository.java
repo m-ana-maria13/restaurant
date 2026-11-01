@@ -1,6 +1,6 @@
-package repository;
+package com.example.restaurant_management_app.repository;
 
-import model.Bill;
+import com.example.restaurant_management_app.model.Bill;
 import org.springframework.stereotype.Repository;
 
 @Repository

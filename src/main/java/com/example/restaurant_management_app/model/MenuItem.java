@@ -1,4 +1,4 @@
-package model;
+package com.example.restaurant_management_app.model;
 
 public class MenuItem {
 
@@ -13,6 +13,8 @@ public class MenuItem {
         this.name = name;
         this.price = price;
     }
+
+    public MenuItem(){}
 
     public String getId() {
         return id;

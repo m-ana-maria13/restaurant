@@ -1,4 +1,4 @@
-package model;
+package com.example.restaurant_management_app.model;
 
 public class Chef extends Staff {
     private String specialization;
@@ -7,6 +7,8 @@ public class Chef extends Staff {
         super(name);
         this.specialization = specialization;
     }
+
+    public Chef() {}
 
     public String getSpecialization() {
         return specialization;

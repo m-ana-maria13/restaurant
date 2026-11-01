@@ -1,9 +1,7 @@
-package repository;
+package com.example.restaurant_management_app.repository;
 
-import model.Order;
+import com.example.restaurant_management_app.model.Order;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public class OrderInMemoryRepository extends InMemoryRepository<Order>{

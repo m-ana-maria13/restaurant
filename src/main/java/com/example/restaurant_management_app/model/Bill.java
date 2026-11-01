@@ -1,18 +1,20 @@
-package model;
+package com.example.restaurant_management_app.model;
 
-public class OrderAssignment {
-
+public class Bill {
     private static int counter=1;
     private String id;
     private String orderId;
-    private String staffId;
+    private double totalAmount;
 
-    public OrderAssignment( String orderId, String staffId) {
+    public Bill( String orderId, double totalAmount) {
         this.id = String.valueOf(counter);
         counter++;
         this.orderId = orderId;
-        this.staffId = staffId;
+        this.totalAmount = totalAmount;
     }
+
+    public Bill(){}
+
 
     public String getId() {
         return id;
@@ -30,11 +32,11 @@ public class OrderAssignment {
         this.orderId = orderId;
     }
 
-    public String getStaffId() {
-        return staffId;
+    public double getTotalAmount() {
+        return totalAmount;
     }
 
-    public void setStaffId(String staffId) {
-        this.staffId = staffId;
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
     }
 }

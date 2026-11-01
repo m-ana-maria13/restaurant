@@ -1,4 +1,4 @@
-package model;
+package com.example.restaurant_management_app.model;
 
 public class Server extends Staff {
     private String designation;
@@ -7,6 +7,8 @@ public class Server extends Staff {
         super( name);
         this.designation=designation;
     }
+
+    public Server(){}
 
     public String getDesignation() {
         return designation;

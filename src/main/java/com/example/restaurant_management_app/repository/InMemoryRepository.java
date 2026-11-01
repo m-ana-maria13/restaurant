@@ -1,4 +1,4 @@
-package repository;
+package com.example.restaurant_management_app.repository;
 
 
 

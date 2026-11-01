@@ -1,6 +1,6 @@
-package repository;
+package com.example.restaurant_management_app.repository;
 
-import model.MenuItem;
+import com.example.restaurant_management_app.model.MenuItem;
 import org.springframework.stereotype.Repository;
 
 @Repository
