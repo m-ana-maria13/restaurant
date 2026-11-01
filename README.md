@@ -54,7 +54,7 @@ replaced with files or a database without changing the services.
 ## How to run
 1. Clone the repo
 2. Open it in IntelliJ
-3. Run the `Main` class
+3. Run the `RestaurantManagementAppApplication`
 
 
 ## Authors
