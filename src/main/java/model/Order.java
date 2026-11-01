@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
     public class Order {
@@ -13,15 +14,16 @@ import java.util.List;
         private List<OrderAssignment> assignments;
         private Boolean takeAway; // daca e takeaway, atunci nu se mai ocupa masa, ! nu se face delivery, vine clientul
 
-        public Order(String customerId, String tableId, List<OrderLine> orderLines, List<OrderAssignment> assignments) {
+        public Order(String customerId, String tableId, boolean takeAway) {
             this.id = String.valueOf(counter);
             counter++;
             this.customerId = customerId;
             this.tableId = tableId;
             this.status = "open";
-            this.orderLines = orderLines;
-            this.assignments = assignments;
-            this.takeAway= false;
+            this.takeAway= takeAway;
+            this.orderLines = new ArrayList<OrderLine>();
+            this.assignments = new ArrayList<OrderAssignment>();
+
         }
 
         public String getId() {
