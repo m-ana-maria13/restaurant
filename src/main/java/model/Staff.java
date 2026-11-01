@@ -10,7 +10,7 @@ public abstract class Staff {
         this.id = String.valueOf(counter);
         counter++;
         this.name = name;
-        this.status="free";
+        this.status="Free";
     }
 
     public String getId() {

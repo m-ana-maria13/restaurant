@@ -1,5 +1,6 @@
 package service;
 
+import model.Staff;
 import model.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,7 @@ public class TableService {
     }
 
     public Table occupyTable(String tableId) {
-        Table table = tableRepository.findById(tableId);
-
-        if (table == null) {
-            throw new IllegalArgumentException("Table does not exist!");
-        }
+        Table table = existingTable(tableId);
 
         if ((table.getOccupiedStatus()).equalsIgnoreCase("occupied")) {
             throw new IllegalStateException("Table already occupied!");
@@ -33,11 +30,7 @@ public class TableService {
     }
 
     public Table releaseTable(String tableId) {
-        Table table = tableRepository.findById(tableId);
-
-        if (table == null) {
-            throw new IllegalArgumentException("Table does not exist!");
-        }
+        Table table = existingTable(tableId);
 
         table.setOccupiedStatus("Free");
         return tableRepository.save(table);
@@ -65,5 +58,13 @@ public class TableService {
             }
         }
         return available;
+    }
+
+    private Table existingTable(String id) {
+        Table table = tableRepository.findById(id);
+        if (table == null) {
+            throw new IllegalArgumentException("Id not valid!");
+        }
+        return table;
     }
 }
